@@ -37,22 +37,19 @@ function App() {
   }
   function SkillList() {
     return (
-      <div>
-        <Skill skill={"HTML,Css"} />
-        <Skill skill={"Javascript"} />
-        <Skill skill={"Web-Design"} />
-        <Skill skill={"Git and Github"} />
-        <Skill skill={"React"} />
-        <Skill skill={"Svelte"} />
+      <div className="skill-list">
+        <Skill skill={"HTML+Css"} color="#123456" />
+        <Skill skill={"Javascript"} color="orangered" />
+        <Skill skill={"Web-Design"} color="yellow" />
+        <Skill skill={"Git and Github"} color="orange" />
+        <Skill skill={"React"} color="green" />
       </div>
     );
   }
-  function Skill({ skill }) {
+  function Skill({ skill, color }) {
     return (
-      <div className="data">
-        <ul className="skill-list">
-          <li className="skill">{skill}</li>
-        </ul>
+      <div className="skill" style={{ backgroundColor: color }}>
+        <span>{skill}</span>
       </div>
     );
   }
