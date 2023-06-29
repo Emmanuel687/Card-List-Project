@@ -1,5 +1,38 @@
 import React from "react";
 import "./index.css";
+const skills = [
+  {
+    skill: "HTML+CSS",
+    level: "advanced",
+    color: "#2662EA"
+  },
+  {
+    skill: "JavaScript",
+    level: "advanced",
+    color: "#EFD81D"
+  },
+  {
+    skill: "Web Design",
+    level: "advanced",
+    color: "#C3DCAF"
+  },
+  {
+    skill: "Git and GitHub",
+    level: "intermediate",
+    color: "#E84F33"
+  },
+  {
+    skill: "React",
+    level: "advanced",
+    color: "#60DAFB"
+  },
+  {
+    skill: "Svelte",
+    level: "beginner",
+    color: "#FF3B00"
+  }
+];
+
 
 function App() {
   return (
@@ -38,18 +71,20 @@ function App() {
   function SkillList() {
     return (
       <div className="skill-list">
-        <Skill skill={"HTML+Css"} color="#123456" />
-        <Skill skill={"Javascript"} color="orangered" />
-        <Skill skill={"Web-Design"} color="yellow" />
-        <Skill skill={"Git and Github"} color="orange" />
-        <Skill skill={"React"} color="green" />
+        {skills.map((skill,index)=><Skill key={index} skill={skill} />)}
+    
       </div>
     );
   }
   function Skill({ skill, color }) {
     return (
-      <div className="skill" style={{ backgroundColor: color }}>
-        <span>{skill}</span>
+      <div className="skill" style={{ backgroundColor:`${skill.color}` }}>
+        <span>{skill.skill}</span>
+        <span>{skill.level==="beginner"&&"💪"}</span>
+        <span>{skill.level==="advanced"&&"👍"}</span>
+        <span>{skill.level==="intermediate"&&"👶"}</span>
+
+
       </div>
     );
   }
